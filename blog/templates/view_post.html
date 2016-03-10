@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head_title %} {{ post.title }} {% endblock %}
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block content %}
+    {% load blog_extras %}
+    <div class="layout-positioner bordered">
+        <div class="article-column" >
+
+        <h1>{{ post.title }}</h1>
+            {% for image,text in post.imageblock_set.all|zip:post.textblock_set.all %}
+                <img src="{{ image.url }}" alt="{{ image.alt }}">
+                <p>{{ text.text }}</p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <style>
+     .article-column {
+
+        background: white;
+        min-height: 500px;
+        border-radius: 25px;
+        display: inline-block;
+        float: left;
+        width: 800px;
+        padding: 20px;
+         padding-right: 80px;
+         padding-left: 80px;
+        box-shadow: 10px 10px 5px #888888;
+        margin-bottom: 30px;
+         font-size: 1.4em;
+    }
+
+    .article-column h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+</style>
+{% endblock %}
+

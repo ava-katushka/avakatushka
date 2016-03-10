@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block head_title %}Welcome to my blog! Nice to see you. {% endblock %}</title>
+    <!--Import Google Icon Font-->
+
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style_base.css' %}"/>
+</head>
+<body>
+{% block navbar %}
+
+    <a href="/">
+    <div class="header bordered">
+        <div class="layout-positioner bordered">
+            <div class="layout-column layout-column-1 bordered">
+{#                <span class="underlined">автор<br> </span>#}
+{#                <span class="text-malina"> Ава <br> Катушка <br> </span>#}
+{#                <span class="underlined text-yellow">блог<br> </span>#}
+            </div>
+            <div class="layout-column layout-column-2 bordered">
+                <div class="header-title bordered">
+                    <div class="catching-phrase">
+{#                        Сделайте свою жизнь <br> необычайной!#}
+                    </div>
+                </div>
+            </div>
+            <div class="layout-column layout-column-3 bordered">
+                <div class="citate-box">
+
+                    Человеку для счастья нужно: кого-то любить, что-то делать, и на что-то надеяться.
+                </div>
+                <div class="citate-author">
+                    RANDOM-CITATE
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+    <div class="button-board bordered">
+        <div class="layout-positioner bordered">
+            <div class="button-column bordered">
+                <div class="button button-text">Books to Read</div>
+            </div>
+            <div class="button-column bordered">
+                <div class="button button-text">Films to Watch</div>
+            </div>
+            <div class="button-center bordered">
+                <div class="button button-center button-text"> Самое интересное</div>
+            </div>
+            <div class="button-column bordered">
+                <div class="button button-text">Подари мне</div>
+            </div>
+            <div class="button-column bordered">
+                <div class="button button-text">Я могу</div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+
+
+{% block footer %}
+    <div class="footer">
+        <div class="layout-positioner">
+
+        </div>
+    </div>
+{% endblock %}
+<style>
+    .header .layout-positioner {
+
+        background:  url('{% static "blog/Banner.png" %}')
+    }
+
+    .button-text {
+        font-size: 30px;
+        text-align: center;
+        padding: 5px;
+
+    }
+
+    .button-text.button-center {
+        padding: 15px;
+    }
+
+    .button-board .layout-positioner .button {
+        height: 75px;
+        vertical-align: middle;
+        display: inline-block;
+
+    }
+
+
+</style>
+
+</body>
+</html>

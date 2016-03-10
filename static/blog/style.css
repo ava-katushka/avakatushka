@@ -1,0 +1,148 @@
+  body {
+        box-sizing: border-box;
+    }
+    .header-title {
+        text-align: center;
+    }
+
+    .header {
+        background: white;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .citate-box {
+        box-sizing: border-box;
+        border-radius: 25px;
+        border: 2px dashed #212121;
+        display: inline-block;
+        padding: 10px;
+        margin-top: 15px;
+        font-size: 20px;
+    }
+
+    .citate-author {
+        font-weight: bold;
+        padding: 10px;
+        text-align: right;
+    }
+
+
+
+
+    .text-malina {
+         color: #A91B2B;
+        font-family: "Hoefler Text";
+    }
+
+    .underlined {
+        border-bottom: 1px solid black;
+    }
+
+    .text-yellow {
+        color: yellow;
+    }
+
+    body {
+        background: #F0F5FB;
+        padding: 0px;
+    }
+
+    .layout-positioner {
+        width: 1000px;
+        margin: 0 auto;
+
+    }
+
+    .layout-positioner:after {
+        content: '';
+        clear: both;
+        display: table;
+    }
+
+    .header .layout-column {
+        height: 200px;
+        background: white;
+        box-sizing: border-box;
+    }
+
+    .header .layout-column.layout-column-1 {
+        float: left;
+        width: 300px;
+        background: white;
+        font-size: 35px;
+        padding: 10px;
+        padding-left: 20px;
+    }
+
+
+    .header .layout-column.layout-column-2 {
+        float: left;
+        width: 400px;
+        background: #FCE25A;
+    }
+
+    .catching-phrase {
+        display: inline-block;
+        background:#F5F5F5;
+        border-radius: 25px;
+        padding: 5px;
+        height: 120px;
+        box-sizing: border-box;
+
+        margin-top: 20px;
+        margin-left: 5%;
+        margin-right: 5%;
+        width: 90%;
+        font-size: 30px;
+    }
+
+    .header .layout-column.layout-column-3 {
+        float: right;
+        width: 300px;
+    }
+
+    .bordered {
+        border: 2px dashed ghostwhite;
+    }
+
+    .button-board {
+        height: 100px;
+        box-sizing: border-box;
+        background-color: #212121;
+    }
+
+    .button-column {
+        width: 150px;
+        height: 100px;
+        float: left;
+        box-sizing: border-box;
+
+    }
+
+    .button {
+        display: inline-block;
+        background:#F5F5F5;
+        border-radius: 25px;
+        padding: 5px;
+        height: 50px;
+        box-sizing: border-box;
+        margin-left: 5%;
+        margin-top: 15px;
+        width: 90%;
+    }
+
+    .button.button-center {
+        height: 70px;
+        margin-top: 10px;
+        width: 90%;
+    }
+
+
+
+    .button-center {
+        width: 400px;
+        height: 100px;
+        float: left;
+        box-sizing: border-box;
+    }

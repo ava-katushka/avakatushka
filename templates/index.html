@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %} Welcome to my blog
+{% endblock %}
+
+{% block content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/style_index.css' %}"/>
+
+    <div class="layout-positioner bordered">
+        {% block post_previews %}
+            {% for post_preview in post_previews %}
+
+                <div class="preview-column">
+                    <a href="{{ post_preview.get_absolute_url }}">
+                        <img src="{{ post_preview.image.url }}" alt="{{ post_preview.slug }}"/>
+                    </a>
+
+                    <a href="{{ post_preview.get_absolute_url }}"
+                       class="preview-heading">{{ post_preview.title }}</a>
+
+                        <p>{{ post_preview.catching_text }} </p>
+
+
+                </div>
+
+            {% endfor %}
+        {% endblock %}
+
+
+
+        <div class="preview-column  ">
+            <img src="{% static "blog/previews/logo400.gif" %}" alt="Make your life extaordinary"/>
+
+            <div class="preview-heading">Как мог бы выглядеть баннер</div>
+            <p>Это первая версия баннера. Но к сожалению, она не подошла нам. Пришлось сделать то, что вы видите
+                наверху! </p>
+        </div>
+        <div class="preview-column  ">
+            <img src="{% static "blog/previews/kuki.jpg" %}" alt="Kuki is a cat"/>
+
+            <div class="preview-heading">Это я нарисовала Куки</div>
+            <p>Куки - звезда уoutube канала сливки шоу! </p>
+        </div>
+        <div class="preview-column  ">
+            <img src="{% static "blog/previews/rocket.jpg" %}" alt="Kuki is a cat"/>
+
+            <div class="preview-heading">А рокетбанк умеет держать удар</div>
+            <p>Я искренне восхищаюсь тем, как держатся эти ребята в трудной ситуации. Их основной партнер, Интеркоммерц,
+                чуть больше месяца назад заблокировал операции по картам “Рокет”. И меня это коснулось. </p>
+        </div>
+        <div class="preview-column  "></div>
+        <div class="preview-column "></div>
+        <div class="preview-column "></div>
+    </div>
+
+    {#        <h2 class="my_red">Categories</h2>#}
+    {#    {% if categories %}#}
+    {#        <ul>#}
+    {#            {% for category in categories %}#}
+    {#                <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>#}
+    {#            {% endfor %}#}
+    {#        </ul>#}
+    {#    {% else %}#}
+    {#        <p>There are no posts. So there are no categories. Coming soon. </p>#}
+    {#    {% endif %}#}
+    {#    <h2>Posts</h2>#}
+    {#    {% if posts %}#}
+    {#        <ul>#}
+    {#            {% for post in posts %}#}
+    {#                <li><a href="{{ post.get_absolute_url }}"/> {{ post.title }}</li>#}
+    {#            {% endfor %}#}
+    {#        </ul>#}
+    {##}
+    {#    {% else %}#}
+    {#        <p>There are no posts. The author is Too Lazy. </p>#}
+    {#    {% endif %}#}
+
+
+    <style>
+        .preview-column a {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .preview-column p {
+            font-size: 1.4em;
+        }
+    </style>
+
+{% endblock %}
