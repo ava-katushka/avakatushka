@@ -24,7 +24,7 @@
 
             {% endfor %}
         <div class="post-date">
-            {{ post.time_posted }}
+            {{ post.postpreview.time_posted }}
         </div>
             <div class="end-of-post"><img src="{% static 'blog/end-of-post.png' %}">
 
@@ -89,6 +89,11 @@
             margin-right: auto;
             display: inherit;
             width: 300px;
+        }
+
+        .post-date {
+            color: gray;
+            text-align: right;
         }
 
     </style>

@@ -19,6 +19,7 @@
                        class="preview-heading">{{ post_preview.title }}</a>
 
                     <p>{{ post_preview.catching_text|safe }} </p>
+                    <span class="time_posted"> {{ post_preview.time_posted }}</span>
 
 
                 </div>
@@ -62,6 +63,10 @@
         .preview-column p {
             font-size: 1.4em;
         }
+
+    .time_posted {
+        color: gray;
+    }
     </style>
 
 {% endblock %}
