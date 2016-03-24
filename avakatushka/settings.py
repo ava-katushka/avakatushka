@@ -106,7 +106,8 @@ USE_TZ = True
 
 
 
-STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.AppDirectoriesFinder",)
+STATICFILES_FINDERS = ("django.contrib.staticfiles.finders.AppDirectoriesFinder",
+                       'django.contrib.staticfiles.finders.FileSystemFinder',)
 
 
 # Static files (CSS, JavaScript, Images)

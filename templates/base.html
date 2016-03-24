@@ -8,55 +8,99 @@
 
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'blog/style_base.css' %}"/>
+
+{% block metricts %}
+    <!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter36111125 = new Ya.Metrika({
+                    id:36111125,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/36111125" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+{% endblock %}
 </head>
 <body>
 {% block navbar %}
 
     <a href="/">
-    <div class="header bordered">
-        <div class="layout-positioner bordered">
-            <div class="layout-column layout-column-1 bordered">
-{#                <span class="underlined">автор<br> </span>#}
-{#                <span class="text-malina"> Ава <br> Катушка <br> </span>#}
-{#                <span class="underlined text-yellow">блог<br> </span>#}
-            </div>
-            <div class="layout-column layout-column-2 bordered">
-                <div class="header-title bordered">
-                    <div class="catching-phrase">
-{#                        Сделайте свою жизнь <br> необычайной!#}
+        <div class="header bordered">
+            <div class="layout-positioner bordered">
+                <div class="layout-column layout-column-1 bordered">
+                    {#                <span class="underlined">автор<br> </span>#}
+                    {#                <span class="text-malina"> Ава <br> Катушка <br> </span>#}
+                    {#                <span class="underlined text-yellow">блог<br> </span>#}
+                </div>
+                <div class="layout-column layout-column-2 bordered">
+                    <div class="header-title bordered">
+                        <div class="catching-phrase">
+                            {#                        Сделайте свою жизнь <br> необычайной!#}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="layout-column layout-column-3 bordered">
-                <div class="citate-box">
+                <div class="layout-column layout-column-3 bordered">
+                    {% with citate=citates.0 %}
+                        <div class="citate-box">
+                            {% if citate.text|length < 100 %}
+                                {{ citate.text }} <br><span class="citate-author">{{ citate.author }}</span>
+                            {% else %}
+                                <span class="small-text">{{ citate.text }}<br><span class="citate-author">{{ citate.author }}</span></span>
+                            {% endif %}
 
-                    Человеку для счастья нужно: кого-то любить, что-то делать, и на что-то надеяться.
-                </div>
-                <div class="citate-author">
-                    RANDOM-CITATE
+                        </div>
+
+                        <div class="citate-buttons">
+
+                            <a href="/" class="small-black-button">
+                                Eще цитату
+                            </a>
+                            <a href="{{ citate.href }}" class="small-black-button" target="_blank">Узнать откуда</a>
+                        </div>
+                    {% endwith %}
+
                 </div>
             </div>
         </div>
-    </div>
     </a>
     <div class="button-board bordered">
-        <div class="layout-positioner bordered">
-            <div class="button-column bordered">
-                <div class="button button-text">Books to Read</div>
-            </div>
-            <div class="button-column bordered">
-                <div class="button button-text">Films to Watch</div>
-            </div>
-            <div class="button-center bordered">
-                <div class="button button-center button-text"> Самое интересное</div>
-            </div>
-            <div class="button-column bordered">
-                <div class="button button-text">Подари мне</div>
-            </div>
-            <div class="button-column bordered">
-                <div class="button button-text">Я могу</div>
-            </div>
-        </div>
+{#        <div class="layout-positioner bordered">#}
+{#            <div class="button-column bordered">#}
+{#                <div class="button button-text">Books to Read</div>#}
+{#            </div>#}
+{#            <div class="button-column bordered">#}
+{#                <div class="button button-text">Films to Watch</div>#}
+{#            </div>#}
+{#            <div class="button-center bordered">#}
+{#                <div class="button button-center button-text"> Самое интересное</div>#}
+{#            </div>#}
+{#            <div class="button-column bordered">#}
+{#                <div class="button button-text">Подари мне</div>#}
+{#            </div>#}
+{#            <div class="button-column bordered">#}
+{#                <div class="button button-text">Я могу</div>#}
+{#            </div>#}
+{#        </div>#}
     </div>
 
 
@@ -69,14 +113,16 @@
 {% block footer %}
     <div class="footer">
         <div class="layout-positioner">
-
+            <div class="footer-text">
+        Мои права никак не защищены. Но мне приятно, если вы укажите меня в источниках.
+                </div>
         </div>
     </div>
 {% endblock %}
 <style>
     .header .layout-positioner {
 
-        background:  url('{% static "blog/Banner.png" %}')
+        background: url('{% static "blog/Banner_new.png" %}')
     }
 
     .button-text {
@@ -96,6 +142,47 @@
         display: inline-block;
 
     }
+
+    .small-black-button {
+        color: white;
+        background-color: #212121;
+        padding: 8px;
+        border-radius: 25px;
+        margin: 5px;
+        text-decoration: none;
+
+    }
+
+    .small-text {
+        font-size: 12px;
+        font-family: Tahoma, Geneva, sans-serif;
+    }
+
+    .citate-box, .citate-author {
+        color: black;
+    }
+
+    .citate-buttons {
+        margin-top: 20px;
+    }
+
+    .citate-author {
+        font-style: italic;
+        font-weight: normal;
+    }
+
+    .button-board {
+        height: 50px;
+    }
+
+    .footer-text {
+        padding-top: 20px;
+        text-align: center;
+        color: gray;
+        vertical-align: bottom;
+    }
+
+
 
 
 </style>

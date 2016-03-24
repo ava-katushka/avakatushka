@@ -5,11 +5,14 @@ from django.db.models import permalink, ImageField
 from django.utils import timezone
 import datetime
 
+
 def post_path(instance, filename):
     return '{0}/{1}'.format(instance.post.slug, filename)
 
+
 def postpreview_path(instance, filename):
     return '{0}/{1}'.format(instance.slug, filename)
+
 
 class Tag(models.Model):
     title = models.CharField(max_length=100, db_index=True)
@@ -57,9 +60,6 @@ class Post(models.Model):
         return ('view_blog_post', None, {'slug': self.slug})
 
 
-
-
-
 class TextBlock(models.Model):
     text = models.TextField()
     post = models.ForeignKey(Post)
@@ -69,3 +69,13 @@ class ImageBlock(models.Model):
     alt = models.CharField(max_length=200)
     post = models.ForeignKey(Post)
     image = models.ImageField(upload_to=post_path)
+
+
+class Citate(models.Model):
+    text = models.TextField()
+    author = models.CharField(max_length=100)
+    href = models.CharField(max_length=100)
+
+    def __unicode__(self):
+
+        return '%s \n %s' % (self.text, self.author)

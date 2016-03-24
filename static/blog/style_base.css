@@ -24,7 +24,10 @@
 
     }
 
+    .header .layout-positioner {
 
+        background:  url('{% static "blog/Banner.png" %}')
+    }
 
 
     .citate-box {
@@ -38,7 +41,7 @@
     }
 
     .citate-author {
-        font-weight: bold;
+        font-style: italic;
         padding: 10px;
         text-align: right;
     }

@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from blog.models import ImageBlock
+from blog.models import ImageBlock, Citate
 from blog.models import Post, PostPreview, TextBlock, Tag
 
 
@@ -32,5 +32,10 @@ class TagAdmin(admin.ModelAdmin):
     pass
 
 
+class CitateAdmin(admin.ModelAdmin):
+    extra = 3
+
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(Citate, CitateAdmin)

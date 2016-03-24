@@ -2,17 +2,23 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render_to_response, get_object_or_404
-from blog.models import PostPreview, Post
+from blog.models import PostPreview, Post, Citate
+from random import shuffle
 
 
 
 def index(request):
     # return render_to_response('index.html', {'categories': Category.objects.all(), 'posts': Blog.objects.all()[:5]})
-    return render_to_response('index.html', {'post_previews': PostPreview.objects.all()})
+    post_previews = PostPreview.objects.all().order_by("-time_posted")
+    citates = list(Citate.objects.all())
+    shuffle(citates)
+    return render_to_response('index.html', {'post_previews': post_previews, 'citates': citates})
 
 
 def view_post(request, slug):
-    return render_to_response('view_post.html', {'post': get_object_or_404(Post, slug=slug)})
+    citates = list(Citate.objects.all())
+    shuffle(citates)
+    return render_to_response('view_post.html', {'post': get_object_or_404(Post, slug=slug), 'citates': citates})
 #
 #
 # def view_category(request, slug):
