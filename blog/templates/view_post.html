@@ -3,6 +3,15 @@
 {% block head_title %} {{ post.title }} {% endblock %}
 {% block title %} {{ post.title }} {% endblock %}
 
+{% block open_graph_data  %}
+    <meta property="og:title" content="Блог Авы: {{ post.title }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://ava-katushka.ru/blog/view/{{ post.slug }}">
+    <meta property="og:image" content="{{ post.postpreview.image.url }}">
+    <meta property="og:description" content={{ post.postpreview.catching_text }}>
+    <meta property="og:site_name" content="Блог Авы Катушки">
+{% endblock %}
+
 {% block content %}
     {% load blog_extras %}
     {% load static %}
